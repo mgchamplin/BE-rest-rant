@@ -1,6 +1,6 @@
 # Project REST-Rant
 
-REST-Rant is an app where users can review restaurants.
+REST-Rant is an app where users can review restaurants. Here are the ROUTES:
 
 | Method | Path                     | Purpose                                          |
 | ------ | ------------------------ | ------------------------------------------------ |
@@ -15,3 +15,12 @@ REST-Rant is an app where users can review restaurants.
 | POST   | /places/:id/rant         | Create a rant (comment) about a particular place |
 | DELETE | /places/:id/rant/:rantId | Delete a rant (comment) about a particular place |
 | GET    | \*                       | 404 page (matches any route not defined above)   |
+
+## Data Stored for restaurants
+
+|Data|Description|
+|Name|Name of restaurant (string)|
+|City|City location (string)|
+|State|State location (string)|
+|Cuisines|Dish types (string)|
+|Photo|Photo of restaurant (string)|
