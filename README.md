@@ -18,9 +18,10 @@ REST-Rant is an app where users can review restaurants. Here are the ROUTES:
 
 ## Data Stored for restaurants
 
-|Data|Description|
-|Name|Name of restaurant (string)|
-|City|City location (string)|
-|State|State location (string)|
-|Cuisines|Dish types (string)|
-|Photo|Photo of restaurant (string)|
+| Data     | Description                  |
+| -------- | ---------------------------- |
+| Name     | Name of restaurant (string)  |
+| City     | City location (string)       |
+| State    | State location (string)      |
+| Cuisines | Dish types (string)          |
+| Photo    | Photo of restaurant (string) |
