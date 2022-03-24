@@ -7,13 +7,13 @@ router.get('/', (req, res) => {
         city: 'Seattle',
         state: 'WA',
         cuisines: 'Italian Cuisine',
-        pic: '/images/Angelos.jpg'
+        pic: '/images/italian.webp'
       }, {
-        name: "Pierre's",
+        name: "Ziba's",
         city: 'Phoenix',
         state: 'AZ',
-        cuisines: 'French Cuisine',
-        pic: '/images/Pierres.jpg'
+        cuisines: 'Mediterranean Cuisine',
+        pic: '/images/ziba-special.png'
       }]
     res.render('places/index',{places}) 
   })
