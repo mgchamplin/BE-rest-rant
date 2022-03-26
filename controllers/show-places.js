@@ -26,28 +26,17 @@ router.post('/', (req, res) => {
   res.redirect('/places')
 })
 
-module.exports = router 
-
-/*
-const router = require('express').Router()
-const places = require('../models/places.js')
-
-router.get('/', (req, res) => {
-    res.render('places/index', { places })
+router.get('/:id', (req, res) => {
+  console.log("GET ID ROUTE")
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+    res.render('error404')
+  }
+  else if (!places[id]) {
+    res.render('error404')
+  }
+  else {
+    res.render('places/show', { place: places[id] })  }
 })
 
-// More code ...
-let places = [{
-  name: "Angelo's",
-  city: 'Seattle',
-  state: 'WA',
-  cuisines: 'Italian Cuisine',
-  pic: '/images/italian.webp'
-}, {
-  name: "Ziba's",
-  city: 'Phoenix',
-  state: 'AZ',
-  cuisines: 'Mediterranean Cuisine',
-  pic: '/images/ziba-special.png'
-}]
-*/
+module.exports = router

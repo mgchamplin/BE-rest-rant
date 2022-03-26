@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }))
 
 // Controllers & Routes
 app.use('/addplace',    require('./controllers/add-place'))
-app.use('/editdetails', require('./controllers/edit-details'))
+app.use('/editdetails', require('./controllers/edit-details')) 
 app.use('/showdetails', require('./controllers/show-details'))
 app.use('/places',      require('./controllers/show-places'))
 
