@@ -2,10 +2,21 @@ h1 {
   text-align: center;
   color: cornflowerblue;
 }
+h2 {
+  text-align: center;
+  text-decoration: underline;
+  color: lightblue;
+  font-size: 1.2em;
+}
+h3 {
+  text-align: center;
+  font-size: 0.8em;
+}
 
 img {
   width: 400px;
   height: 300px;
+  max-width: 100%;
 }
 
 nav {
@@ -43,4 +54,29 @@ main {
   margin-right: 20px;
   margin-left: 20px;
   background-color: white;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+img {
+  max-width: 100%;
+}
+.image {
+  margin-top: 2em;
+  flex-basis: 40%;
+}
+.text {
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.btn-space {
+  margin-top: 2em;
+  margin-left: 1em;
+  margin-bottom: 2em;
+  min-width: 5em;
 }
