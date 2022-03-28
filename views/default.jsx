@@ -24,6 +24,10 @@ function Def (html) {
             </nav>
                 {html.children}
             </body>
+            <footer className="page-footer font-small blue">
+                <div className="footer-copyright text-center py-3">Join our mailing list:  <a href="/">Click Here</a>
+                </div>
+            </footer>
         </html>
     )
   }

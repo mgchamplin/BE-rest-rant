@@ -1,12 +1,13 @@
 h1 {
   text-align: center;
   color: cornflowerblue;
+  font-size: 2em;
 }
 h2 {
   text-align: center;
   text-decoration: underline;
   color: lightblue;
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 h3 {
   text-align: center;
@@ -22,6 +23,8 @@ img {
 nav {
   background-color: cornflowerblue;
   padding: 10px;
+  margin-left: 1.2em;
+  margin-right: 1.2em;
 }
 
 nav ul {
@@ -64,6 +67,7 @@ main {
 }
 img {
   max-width: 100%;
+  margin-bottom: 2em;
 }
 .image {
   margin-top: 2em;
@@ -86,4 +90,11 @@ img {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+}
+
+footer {
+  background-color: cornflowerblue;
+  color: white;
+  margin-left: 1.2em;
+  margin-right: 1.2em;
 }
