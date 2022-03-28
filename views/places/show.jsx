@@ -10,7 +10,7 @@ function show (data) {
                         <img src={data.place.pic} alt={data.place.name} />
                     </div>
                     <div className = "text">
-                        <h1>{ data.place.name }</h1>
+                        <h1 className="h1a">{ data.place.name }</h1>
                         <h2>Rating</h2>
                         <h3>Not Rated</h3>
                         <h2>Description</h2>

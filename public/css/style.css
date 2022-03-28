@@ -1,12 +1,15 @@
 h1 {
   text-align: center;
-  color: cornflowerblue;
+  color: black;
   font-size: 2em;
+}
+.h1a {
+  color: rgb(16, 108, 214);
 }
 h2 {
   text-align: center;
   text-decoration: underline;
-  color: lightblue;
+  color: rgb(85, 82, 82);
   font-size: 1.5em;
 }
 h3 {
@@ -21,7 +24,6 @@ img {
 }
 
 nav {
-  background-color: cornflowerblue;
   padding: 10px;
   margin-left: 1.2em;
   margin-right: 1.2em;
@@ -38,18 +40,20 @@ nav li {
 }
 
 nav a {
-  color: white;
+  color: black;
   font-size: 1.5em;
+  font-weight: 700;
   text-decoration: none;
 }
 
 nav a:hover {
-  color: pink;
+  color: blue;
   text-decoration: none;
 }
 
 body {
-  background-color: lightblue;
+  background-image: url("/images/picnic-table-image.jpg");
+  background-size: cover;
   text-align: center;
 }
 
@@ -93,8 +97,12 @@ img {
 }
 
 footer {
-  background-color: cornflowerblue;
-  color: white;
+  color: black;
   margin-left: 1.2em;
   margin-right: 1.2em;
+  font-weight: 600;
+}
+
+a {
+  color: blue;
 }

@@ -25,7 +25,8 @@ function Def (html) {
                 {html.children}
             </body>
             <footer className="page-footer font-small blue">
-                <div className="footer-copyright text-center py-3">Join our mailing list:  <a href="/">Click Here</a>
+                <div className="footer-copyright text-center py-3">Have a Question?&nbsp;&nbsp;&nbsp;<a href="mailto:RestaurantsRUs@whoknows.com">Email us</a>
+                <p>Copyright Michael Champlin 2020-2022</p>
                 </div>
             </footer>
         </html>
