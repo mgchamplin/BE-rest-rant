@@ -6,6 +6,7 @@ function show (data) {
         <Def>
             <main>
                 <div className = "container">
+                    <img className ="utensils" src="/images/fork-knife.png" alt="Fork and Knife" /> 
                     <div className = "image">
                         <img src={data.place.pic} alt={data.place.name} />
                     </div>

@@ -5,7 +5,12 @@ function new_form () {
     return (
         <Def>
           <main>
-            <h1>Add a New Place</h1>
+            <div className="container">
+                <img className ="utensils-sideways" src="/images/knife-sideways.png" alt="Knife sideways" />
+                <h1>Add a New Place</h1>
+                <img className ="utensils-sideways" src="/images/fork-sideways.png" alt="Fork sideways" />
+            </div>
+
             <form method="POST" action="/places">
                 <div className="form_container">
                     <div className="form-group">

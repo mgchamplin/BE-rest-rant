@@ -8,7 +8,9 @@ function home () {
                 <h1>Restaurants 4 U</h1>
                 
                 <div>
-                  <img src="/images/Pizza.jpg" width={800} alt="Juicy Pizza" />
+                  <img className ="utensils" src="/images/fork-knife.png" alt="Fork and Knife" /> 
+                  <img src="/images/Pizza.jpg" alt="Juicy Pizza" />
+                  <img className="utensils" src="/images/spoon.png" alt="spoon" /> 
                 </div>
             </main>
       </Def>

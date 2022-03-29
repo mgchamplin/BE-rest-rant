@@ -5,7 +5,11 @@ function edit_form (data) {
     return (
         <Def>
           <main>
-            <h1>Edit Restaurant Info</h1>
+            <div className="container">
+                <img className ="utensils-sideways" src="/images/knife-sideways.png" alt="Knife sideways" />
+                <h1>Edit Restaurant Info</h1>
+                <img className ="utensils-sideways" src="/images/fork-sideways.png" alt="Fork sideways" />
+            </div>
             <form method="POST" action={`/places/${data.id}?_method=PUT`}>
                 <div className="form_container">
                     <div className="form-group">
