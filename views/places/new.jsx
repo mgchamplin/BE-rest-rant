@@ -23,20 +23,20 @@ function new_form () {
                     </div>
 
                     <div className="row">
-                        <div className="form-group col-sm-6">
+                        <div className="form-group col-sm-4">
                             <label htmlFor="city">City</label>
                             <input className="form-control" id="city" name="city" />
                         </div>
-                        <div className="form-group col-sm-6">
+                        <div className="form-group col-sm-4">
                             <label htmlFor="state">State</label>
                             <input className="form-control" id="state" name="state" />
                         </div>
+                        <div className="form-group col-sm-4">
+                            <label for="foundedd">Founded Year</label>
+                            <input className="form-control" id="founded" name="founded" />
+                        </div>
                     </div>
-                    
-                    <div className="form-group">
-                        <label for="founded">Founded Year</label>
-                        <input className="form-control" id="founded" name="founded" />
-                    </div>
+
 
                     <div className="form-group">
                         <label htmlFor="cuisines">Cuisines</label>
