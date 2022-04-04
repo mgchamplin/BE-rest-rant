@@ -13,28 +13,28 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  if (!req.body.pic) {
-    req.body.pic = "/images/utensils.png"
-  }
+    if (!req.body.pic) {
+      req.body.pic = "/images/utensils.png"
+    }
 
-  db.Place.create(req.body)
-  .then(() => {
-      res.redirect('/places')
-  })
-  .catch(err => {
-      if (err && err.name == 'ValidationError') {
-          let message = 'Validation Error: '
-          for (var field in err.errors) {
-              message += `${field} was ${err.errors[field].value}. `
-              message += `${err.errors[field].message}`
-          }
-          console.log('Validation error message', message)
-          res.render('places/new', { message })
-      }
-      else {
-          res.render('error404')
-      }
-  })
+    db.Place.create(req.body)
+    .then(() => {
+        res.redirect('/places')
+    })
+    .catch(err => {
+        if (err && err.name == 'ValidationError') {
+            let message = 'Validation Error: '
+            for (var field in err.errors) {
+                message += `${field} was ${err.errors[field].value}. `
+                message += `${err.errors[field].message}`
+            }
+            console.log('Validation error message', message)
+            res.render('places/new', { message })
+        }
+        else {
+            res.render('error404')
+        }
+    })
 })
 
 router.get('/new', (req, res) => {
@@ -53,14 +53,22 @@ router.get('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  res.send('PUT /places/:id stub')
+  console.log("PUT /:id")
+
+  res.send('PUT DELETE Stub')
 })
 
 router.delete('/:id', (req, res) => {
+  console.log("DELETE /:id")
+
+  db.Place.deleteOne(req.params.id)
+
   res.send('DELETE /places/:id stub')
 })
 
 router.get('/:id/edit', (req, res) => {
+  console.log("GET /:id/edit")
+
   res.send('GET edit form stub')
 })
 
