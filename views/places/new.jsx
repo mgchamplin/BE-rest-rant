@@ -1,7 +1,11 @@
 const React = require('react')
 const Def = require('../default')
 
-function new_form () {
+function new_form (data) {
+    let message = ""
+    if (data.message) {
+        message = ( <h4 className="alert-danger">{data.message}</h4> )
+    }
     return (
         <Def>
           <main>
@@ -9,6 +13,9 @@ function new_form () {
                 <img className ="utensils-sideways" src="/images/knife-sideways.png" alt="Knife sideways" />
                 <h1>Add a New Place</h1>
                 <img className ="utensils-sideways" src="/images/fork-sideways.png" alt="Fork sideways" />
+            </div>
+            <div>
+                {message}
             </div>
 
             <form method="POST" action="/places">
@@ -33,7 +40,7 @@ function new_form () {
                         </div>
                         <div className="form-group col-sm-4">
                             <label for="foundedd">Founded Year</label>
-                            <input className="form-control" id="founded" name="founded" />
+                            <input type="number" className="form-control" id="founded" name="founded" value={new Date().getFullYear()}/>
                         </div>
                     </div>
 

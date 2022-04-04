@@ -21,7 +21,7 @@ function index (data) {
         <main>
           <div className="container">
             <img className ="utensils-sideways" src="/images/knife-sideways.png" alt="Knife sideways" />
-            <h1>Places To Rant Or Rave About</h1>
+            <h1>Places To Rant Or Rave About!</h1>
             <img className ="utensils-sideways" src="/images/fork-sideways.png" alt="Fork sideways" />
           </div>
 
