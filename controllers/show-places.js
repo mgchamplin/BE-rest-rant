@@ -75,15 +75,15 @@ router.post('/', (req, res) => {
 
 router.post('/:id/comment', (req, res) => {
   console.log("POST /:id/comment")
-})
-/*
-  console.log(req.body)
+  console.log("PLACE = " + req.params.id)
   req.body.rant = req.body.rant ? true : false;
   
   db.Place.findById(req.params.id)
   .then(place => {
       db.Comment.create(req.body)
       .then(comment => {
+          console.log("Storing comment!")
+
           place.comments.push(comment.id)
           place.save()
           .then(() => {
@@ -91,14 +91,17 @@ router.post('/:id/comment', (req, res) => {
           })
       })
       .catch(err => {
+          console.log("Failed Comment Create")
+
           res.render('error404')
       })
   })
   .catch(err => {
+      console.log("Can't Find Place")
       res.render('error404')
   })
 })
-*/
+
 
 router.post('/:id/rant', (req, res) => {
   res.send('GET /places/:id/rant stub')

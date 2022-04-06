@@ -39,7 +39,7 @@ function new_form (data) {
                             <input className="form-control" id="state" name="state" />
                         </div>
                         <div className="form-group col-sm-4">
-                            <label for="foundedd">Founded Year</label>
+                            <label for="founded">Founded Year</label>
                             <input type="number" className="form-control" id="founded" name="founded" value={new Date().getFullYear()}/>
                         </div>
                     </div>

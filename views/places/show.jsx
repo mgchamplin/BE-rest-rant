@@ -10,11 +10,11 @@ function show (data) {
           return (
             <div className="border">
               <h2 className="rant">{c.rant ? 'Rant! 😡' : 'Rave! 😻'}</h2>
-              <h4>{c.content}</h4>
+              <h3>{c.content}</h3>
               <h3>
                 <stong>- {c.author}</stong>
               </h3>
-              <h4>Rating: {c.stars}</h4>
+              <h3>Rating: {c.stars}</h3>
             </div>
           )
         })
@@ -37,8 +37,8 @@ function show (data) {
                         <h3>{data.place.cuisines }</h3>
                         
                         <div className = "container">
-                        <a href={`/places/${data.id}/edit`} className="btn btn-primary btn-space"> EDIT </a>
-                        <form method="POST" action={`/places/${data.id}?_method=DELETE`}> 
+                        <a href={`/placess/${data.place.id}/edit`} className="btn btn-primary btn-space"> EDIT </a>
+                        <form method="POST" action={`/places/${data.place.id}?_method=DELETE`}> 
                         <button type="submit" className="bi bi-trash btn btn-primary btn-space">DELETE</button>
                         </form>    
                         </div>
@@ -48,9 +48,64 @@ function show (data) {
                     
                 <h2 style={{fontSize:"1.5em"}}>Comments</h2>
                 {comments}
+                <br></br>
+                <h2>Got a Rant or Rave?</h2>
+                <form method="POST" action={`/places/${data.place.id}/comment`}>
+
+                    <div className="form_container">
+                        <div className="form-group">
+                            <label htmlFor="content">Content</label>
+                            <input className="form-control" id="content" name="content" required />
+                        </div>
+
+                        <div className="row">
+                            <div className="form-group col-sm-4">
+                                <label htmlFor="author">Author</label>
+                                <input className="form-control" id="author" name="author" />
+                            </div>
+                            <div className="form-group col-sm-4">
+                                <label htmlFor="stars">Stars (0-bad, 5-Excellent)</label>
+                                <input type="number" min="0" max="5" step="0.5" value="0.0" className="stars-slider form-control" id="stars" name="stars" />
+                            </div>
+                            <div className="form-group col-sm-4">
+                                <label for="rant">Rant?</label>
+                                <input className="check-box" type="checkbox" name="rant" id="rant" defaultChecked/>
+                            </div>
+                        </div>
+
+                        <input className="btn btn-primary btn-space" type="submit" value="Add Comment" />
+                    </div>
+                </form>
             </main>
         </Def>
     )
 }
 
 module.exports = show
+
+/*
+
+
+<div className="form_container">    
+                        <div className="form-group">
+                            <label htmlFor="name">Content</label>
+                            <input className="form-control" id="content" name="content"/>
+                        </div>
+                        <div className="row">
+                            <div className="form-group col-sm-4">
+                                <div>
+                                    <label htmlFor="name">Author</label>
+                                    <input className="form-control" id="author" name="author"/>
+                                </div>
+                                    <label htmlFor="name">Rating</label>
+                                    <input className="form-control" id="rating" name="rating"/>
+                                <div>
+                                    <label htmlFor="name">Rant</label>
+                                    <input className="form-control" id="rant" name="rant"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="form_container"></div>
+                    <input className="btn btn-primary btn-space" type="submit" value="Add Comment" />
+*/
