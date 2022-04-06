@@ -19,5 +19,4 @@ app.use('/places', require('./controllers/show-places'))
 app.get('/', (req, res) => {res.render("home")})
 app.get('*', (req, res) => {res.render('error404')})
 
-app.listen(process.env.PORT) 
-
+app.listen(process.env.PORT)
