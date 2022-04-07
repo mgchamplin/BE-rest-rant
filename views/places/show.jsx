@@ -5,6 +5,8 @@ function show (data) {
     let comments = (
         <h3 className="inactive">No Comments Yet</h3>
     )
+    let rating = (<h3 className="inactive">No comments yet!</h3>)
+
     if (data.place.comments.length) {
         comments = data.place.comments.map(c => {
           return (
@@ -18,6 +20,11 @@ function show (data) {
             </div>
           )
         })
+        let sumRatings = data.place.comments.reduce((tot, c) => {return tot + c.stars}, 0)
+
+        let averageRating = (sumRatings / data.place.comments.length).toFixed(1)
+        
+        rating = (<h3>{averageRating} stars</h3>)
     }
     return (
         <Def>
@@ -31,7 +38,7 @@ function show (data) {
                     <div className = "text">
                         <h1 className="h1a">{ data.place.name }</h1>
                         <h2>Rating</h2>
-                        <h3>Not Rated</h3>
+                        <h3>{rating}</h3>
                         <h2>Description</h2>
                         <h3>{data.place.showEstablished()}</h3>
                         <h3>{data.place.cuisines }</h3>
@@ -84,7 +91,23 @@ function show (data) {
 module.exports = show
 
 /*
-
+let rating = (
+  <h3 className="inactive">
+    Not yet rated
+  </h3>
+)
+if (data.place.comments.length) {
+  let sumRatings = data.place.comments.reduce((tot, c) => {
+    return tot + c.stars
+  }, 0)
+  let averageRating = sumRatings / data.place.comments.length
+  rating = (
+    <h3>
+      {averageRating} stars
+    </h3>
+  )
+  ...
+}
 
 <div className="form_container">    
                         <div className="form-group">
