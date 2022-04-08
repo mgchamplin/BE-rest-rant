@@ -16,6 +16,19 @@ router.get('/new', (req, res) => {
   res.render('places/new')
 })
 
+router.get('/:id/edit', (req, res) => {
+  console.log("GET /:id/edit")
+
+  db.Place.findById(req.params.id)
+  .then (place => {
+      res.render("places/edit", {place})
+  })
+  .catch(err => {
+    console.log('err1', err)
+    res.render('error404')
+})})
+
+
 router.get('/:id', (req, res) => {
   db.Place.findById(req.params.id)
   .populate('comments')
@@ -23,7 +36,7 @@ router.get('/:id', (req, res) => {
       res.render('places/show', { place })
   })
   .catch(err => {
-      console.log('err', err)
+      console.log('err2', err)
       res.render('error404')
   })
 })
@@ -31,21 +44,27 @@ router.get('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
   console.log("PUT /:id")
 
-  res.send('PUT DELETE Stub')
+  db.Place.findByIdAndUpdate(req.params.id, req.body)
+  .then(() => {
+     res.redirect(`/places/${req.params.id}`)
+  })
+  .catch (err => {
+    console.log('err3', err)
+    res.render("error404")
+  })
 })
 
 router.delete('/:id', (req, res) => {
   console.log("DELETE /:id")
 
-  db.Place.deleteOne(req.params.id)
-
-  res.send('DELETE /places/:id stub')
-})
-
-router.get('/:id/edit', (req, res) => {
-  console.log("GET /:id/edit")
-
-  res.send('GET edit form stub')
+  db.Place.findByIdAndDelete(req.params.id)
+  .then (place => {
+    res.redirect('/places')
+  })
+  .catch (err => {
+    console.log('err',err)
+    res.render("error404")
+  })
 })
 
 router.post('/', (req, res) => {
@@ -112,129 +131,3 @@ router.delete('/:id/rant/:rantId', (req, res) => {
 })
 
 module.exports = router
-
-
-//const router = require('express').Router()
-//const places = require('../models/places.js')
-
-
-//** Show all restaurants
-
-//router.get('/', (req, res) => {
-//  console.log("GET at /")
-//  res.render('places/index',{places}) 
-//})
-
-/*
-** Show new restaurant form
-*/
-//router.get('/new', (req, res) => {
-//  console.log("GET at /new")
-//
-//  res.render('places/new')
-//})
-
-/*
-** Show individual restaurant
-*/
-//router.get('/:id', (req, res) => {
-//  console.log("GET at /:id")
-
-//  let id = Number(req.params.id)
-//  if (isNaN(id)) {
-//    res.render('error404')
-//  }
-//  else if (!places[id]) {
-//    res.render('error404')
-//  }
-//  else {
-//    res.render('places/show', { place: places[id], id})  }
-//})
-
-/* Show the page for editing a restaurant
-*/
-//router.get('/:id/edit', (req, res) => {
-//  console.log("GET at /:id/edit")
-//
-//  let id = Number(req.params.id)
-//  if (isNaN(id)) {
-//      res.render('error404')
-//  }
-//  else if (!places[id]) {
-//      res.render('error404')
-//  }
-//  else {
-//    res.render('places/edit', { place: places[id], id:id })
-//  }
-//})
-
-/*
-** Add the new restaurant to the DB
-*/
-// router.post('/', (req, res) => {
-//   console.log("POST at /")
-//   if (!req.body.pic) {
-//     // Default image if one is not provided
-//     req.body.pic = 'http://placekitten.com/400/400'
-//   }
-//   if (!req.body.city) {
-//     req.body.city = 'Anytown'
-//   }
-//   if (!req.body.state) {
-//     req.body.state = 'USA'
-//   }
-//   /* Add to the end of the places array list and redirect user back to main rest list
-//   */
-//   places.push(req.body)
-//   res.redirect('/places')
-// })
-
-/* Process the put request -> from editing the restaurant data back into the DB
-
-router.put('/:id', (req, res) => {
-  console.log("PUT at /:id")
-
-  let id = Number(req.params.id)
-  if (isNaN(id)) {
-      res.render('error404')
-  }
-  else if (!places[id]) {
-      res.render('error404')
-  }
-  else {
-      // Dig into req.body and make sure data is valid
-      if (!req.body.pic) {
-          // Default image if one is not provided
-          req.body.pic = 'http://placekitten.com/400/400'
-      }
-      if (!req.body.city) {
-          req.body.city = 'Anytown'
-      }
-      if (!req.body.state) {
-          req.body.state = 'USA'
-      }
-
-      // Save the new data into places[id]
-      places[id] = req.body
-      res.redirect(`/places/${id}`)
-  }
-})
-
-router.delete('/:id', (req, res) => {
-  console.log("Delete at /:id")
-
-  let id = Number(req.params.id)
-  if (isNaN(id)) {
-    res.render('error404')
-  }
-  else if (!places[id]) {
-    res.render('error404')
-  }
-  else {
-    places.splice(id, 1)
-    res.redirect('/places')
-  }
-})
-
-module.exports = router
-*/
