@@ -125,3 +125,15 @@ a {
 .stars-slider {
   text-align: center;
 }
+
+#del-comment {
+  padding-bottom: 2em;
+  height:1.5em;
+  width: 6em;
+  text-align: center;
+  align-items: center;
+  font-size:12px;
+}
+
+.rant {
+  font-size: 1.2em;}

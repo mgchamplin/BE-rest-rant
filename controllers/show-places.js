@@ -67,6 +67,28 @@ router.delete('/:id', (req, res) => {
   })
 })
 
+router.delete('/:rid/comment/:cid', (req, res) => {
+  console.log("DELETE /:id/comment/:id")
+  console.log("PARAMS ARE: " + req.params)
+
+  db.Comment.findByIdAndDelete(req.params.cid)
+  .then (comment => {
+    console.log("GREAT JOB!  comment=" + comment)
+
+    db.Place.findById(req.params.rid)
+    .then (place =>{
+        console.log("PLACE IZ " + place.id)
+
+        res.redirect(`/places/${place.id}`)
+    })
+
+  })
+  .catch (err => {
+    console.log('err9',err)
+    res.render("error404")
+  })
+})
+
 router.post('/', (req, res) => {
   if (!req.body.pic) {
     req.body.pic = "/images/utensils.png"

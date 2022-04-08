@@ -11,12 +11,15 @@ function show (data) {
         comments = data.place.comments.map(c => {
           return (
             <div className="border">
-              <h2 className="rant">{c.rant ? 'Rant! 😡' : 'Rave! 😻'}</h2>
-              <h3>{c.content}</h3>
-              <h3>
-                <stong>- {c.author}</stong>
-              </h3>
-              <h3>Rating: {c.stars}</h3>
+                <h2 className="rant">{c.rant ? 'Rant! 😡' : 'Rave! 😻'}</h2>
+                <h3>{c.content}</h3>
+                <h3>
+                    <stong>- {c.author}</stong>
+                </h3>
+                <h3>Rating: {c.stars}</h3>
+                <form method="POST" action={`/places/${data.place.id}/comment/${c.id}?_method=DELETE`}>
+                    <input type="submit" id="del-comment" className="btn-xs btn btn-danger " value="Delete" />
+                </form>
             </div>
           )
         })
@@ -50,7 +53,7 @@ function show (data) {
                         <div className = "container">
                         <a href={`/places/${data.place.id}/edit`} className="btn btn-primary btn-space"> EDIT </a>
                         <form method="POST" action={`/places/${data.place.id}?_method=DELETE`}> 
-                        <button type="submit" className="bi bi-trash btn btn-primary btn-space">DELETE</button>
+                        <button type="submit" className="bi bi-trash btn btn-danger btn-space">DELETE</button>
                         </form>    
                         </div>
 
@@ -95,6 +98,18 @@ function show (data) {
 module.exports = show
 
 /*
+if (data.place.comments.length) {
+  comments = data.place.comments.map(c => {
+    return (
+      <div className="border col-sm-4">
+        ...
+        <form method="POST" action={`/places/${data.place.id}/comment/${c.id}?_method=DELETE`}>
+          <input type="submit" className="btn btn-danger" value="Delete Comment" />
+        </form>
+      </div>
+    )
+  })
+}
 let rating = (
   <h3 className="inactive">
     Not yet rated
